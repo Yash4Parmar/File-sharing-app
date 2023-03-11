@@ -48,7 +48,6 @@ async function handleDownload(req, res) {
     if (!(await bcrypt.compare(req.body.password, file.password))) {
         res.render('password', { error: true, downloadCount: file.downloadCount });
         return;
-
     }
 
     file.downloadCount++;
