@@ -4,23 +4,29 @@
 <%- include('./partials/head.ejs')%>
 
     <body>
-        <% if (locals.fileLink !=null) { %>
-            <div>
-                <h4>File Uploaded</h4>
-                <a href="<%= locals.fileLink%>">
-                    <%= locals.fileLink%>
-                </a>
-            </div>
-            <% } %>
+        <div class="super">
 
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <label for="file">File:</label>
-                    <input type="file" id="file" name="file" required>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password">
-                    <button>Send</button>
-                </form>
+            <% if (locals.fileLink !=null) { %>
+                <div class="main link-main">
+                    <h4>File Uploaded</h4><br>
+                    <a href="<%= locals.fileLink%>">
+                        <%= locals.fileLink%>
+                    </a>
+                </div>
+                <% } %>
+                    <% if (locals.fileLink==null) { %>
+                        <div class="main">
 
+                            <form action="/upload" method="post" enctype="multipart/form-data">
+                                <label class="lables" for="file">Upload file</label><br>
+                                <input class="inps file" type="file" id="file" name="file" required><br>
+                                <label class="lables" for="password">Password:</label><br>
+                                <input class="inps pwd" type="password" id="password" name="password" required><br>
+                                <button class="btn">Send</button>
+                            </form>
+                        </div>
+                        <% } %>
+        </div>
     </body>
 
 </html>
